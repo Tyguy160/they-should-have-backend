@@ -10,13 +10,13 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use('/api/card', router);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const start = async () => {
   try {
     await connect();
     app.listen(port, () => {
-      console.log(`Listening to https://localhost:${port}`);
+      console.log(`Listening to port ${port}`);
     });
   } catch (e) {
     console.error(e);
